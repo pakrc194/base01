@@ -23,14 +23,24 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: ElevatedButton(
-            onPressed: fetchData,
-            child: const Text('Fetch Data'),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: fetchData,
+                child: const Text('Fetch Data'),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Another action
+                },
+                child: const Text('Second Button'),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
-
-  
 }
