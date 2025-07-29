@@ -51,7 +51,6 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('Second Button'),
             ),
-            const Text("hello world"),
           ],
         ),
       ),
