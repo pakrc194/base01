@@ -2,6 +2,7 @@ import 'package:base01/openapi.dart';
 import 'package:base01/signup.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:base01/scrollview.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,6 +15,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const HomePage(),
+      theme: ThemeData.light(),      // Light theme
+      darkTheme: ThemeData.dark(),   // Dark theme
+      themeMode: ThemeMode.dark,   // Use system setting (auto switch)
     );
   }
 }
@@ -61,6 +65,16 @@ class HomePage extends StatelessWidget {
                 );
               },
               child: const Text('Open API Example'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ScrollViewExample()),
+                );
+              },
+              child: const Text('ScrollView Example'),
             ),
           ],
         ),
