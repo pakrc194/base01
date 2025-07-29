@@ -1,3 +1,4 @@
+import 'package:base01/openapi.dart';
 import 'package:base01/signup.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -49,9 +50,18 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const SignupApp()),
                 );
               },
-              child: const Text('Second Button'),
+              child: const Text('Signup Button'),
             ),
-            const Text("hello world"),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Openapi()),
+                );
+              },
+              child: const Text('Open API Example'),
+            ),
           ],
         ),
       ),
