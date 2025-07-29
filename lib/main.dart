@@ -1,3 +1,4 @@
+import 'package:base01/signup.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,17 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   Future<void> fetchData() async {
     try {
@@ -20,26 +32,27 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ElevatedButton(
-                onPressed: fetchData,
-                child: const Text('Fetch Data'),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  // Another action
-                },
-                child: const Text('Second Button'),
-              ),
-              Text("hello world"),
-            ],
-          ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: fetchData,
+              child: const Text('Fetch Data'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignupApp()),
+                );
+              },
+              child: const Text('Second Button'),
+            ),
+            const Text("hello world"),
+          ],
         ),
       ),
     );
